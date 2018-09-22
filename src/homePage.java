@@ -67,8 +67,16 @@ public class homePage extends HttpServlet {
 	public File getResourceFile(String fileName) {
 		// Returns a file from the project resources based on the path name.
 		try {
-			return new File(java.net.URLDecoder.decode(getClass().getResource("/res" + fileName).
-					toString().substring(6), "UTF-8"));
+			String OS = System.getProperty("os.name").toLowerCase();
+			if(OS.indexOf("win") >= 0) {
+				return new File(java.net.URLDecoder.decode(getClass().getResource("/res" + fileName).
+						toString().substring(6), "UTF-8"));
+			}
+			else {
+				return new File("/" + java.net.URLDecoder.decode(getClass().getResource("/res" + fileName).
+						toString().substring(6), "UTF-8"));
+			}
+			
 		} catch (UnsupportedEncodingException e) {}
 		return null;
 	}

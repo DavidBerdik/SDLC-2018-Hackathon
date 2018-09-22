@@ -1,10 +1,25 @@
 <!doctype html>
 <html>
 <head>
+<link rel="stylesheet" href="navBarStyle.css">
+<link rel="stylesheet" href="miscStyles.css">
+<link rel="stylesheet" href="uploadPDFStyle.css">
 <meta charset="UTF-8">
 <title>uploadPDF</title>
 </head>
 
 <body>
+	<div id="navBar">
+		<ul class="navBar">
+			<li class="navBarSect"><a href="hackathonProject.html" class="navBarContent"> Home</a> </li>
+			<li class="navBarSect"><a href="uploadPDF.html" class="navBarContent"> Upload PDF</a> </li>
+			<li class="navBarSect"><a href="FAQ.html" class="navBarContent">FAQ</a></li>
+		</ul>
+	</div>
+	<div id="content"></div>
+	<form>
+		<input type="file" accept="pdf" class="uploadButton" multiple/>
+		<input type="submit" class="subButton">
+	</form>
 </body>
 </html>

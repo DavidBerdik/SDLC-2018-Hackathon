@@ -10,6 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="src/res/javax.servlet-3.0.jar"/>
 	<classpathentry kind="lib" path="src/res/pdfbox-2.0.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/Hackathon/src/res/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="src/res/commons-logging-1.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

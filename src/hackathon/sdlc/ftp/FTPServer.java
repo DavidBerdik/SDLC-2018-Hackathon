@@ -33,4 +33,16 @@ public class FTPServer {
 		return ftp;
 	}
 	
+	public void disconnect() {
+		if (!ftp.isConnected()) return;
+		
+		try {
+			ftp.logout();
+			ftp.disconnect();
+		} catch (IOException e) {
+			System.out.println("FTPServer::disconnect -> IOException");
+		}
+		
+	}
+	
 }

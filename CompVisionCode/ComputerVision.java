@@ -8,6 +8,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import json.JSONObject;
+import java.util.Scanner;
 public class ComputerVision
 {
 	 // **********************************************
@@ -65,13 +66,69 @@ public class ComputerVision
                 String jsonString = EntityUtils.toString(entity);
                 JSONObject json = new JSONObject(jsonString);
                 System.out.println("REST Response:\n");
-                String results = json.toString(2);
-                System.out.println(json.toString(2));
+                cleanUp(json.toString(1));
+                //System.out.println(results);
             }
         } catch (Exception e)
         {
             // Display error message.
             System.out.println(e.getMessage());
         }
+    }
+    
+    public static void cleanUp(String s)
+    {
+    	//First pass
+    	int i, c = 0;
+    	String newStr1 = "", newStr2 = "";
+    	char[] temp;
+    	
+    	Scanner cleaner = new Scanner(s);
+    	//System.out.println(s);
+    	while (cleaner.hasNext())
+    	{
+    		i = 0;
+    		temp = cleaner.nextLine().toCharArray();
+    		if (temp[0] == ' ')
+    		{
+    			while (temp[i] == ' ')
+    			{
+    				temp[i] = '#'; i++;
+    			}
+    		}
+    		for(int j = 0; j < temp.length; j++)
+    		{
+    			if (temp[j] != '#')
+    				newStr1 += temp[j];
+    		}
+    		newStr1+= '\n';
+    	}
+    	
+    	newStr1 = newStr1.replace("{", "");
+    	newStr1 = newStr1.replace("}", "");
+    	newStr1 = newStr1.replace("[", "");
+    	newStr1 = newStr1.replace("]", "");
+    	
+    	//Second pass
+    	cleaner = new Scanner(newStr1);
+    	while (cleaner.hasNext())
+    	{
+    		i = 0;
+    		temp = cleaner.nextLine().toCharArray();
+    		if (temp[0] == ' ' /*|| temp[0] == ','*/)
+    		{
+    			while (temp[i] == ' ' /*|| temp[i] == ','*/)
+    			{
+    				temp[i] = '#'; i++;
+    			}
+    		}
+    		for(int j = 0; j < temp.length; j++) System.out.print(temp[j]);
+    		{
+    			//if (temp[j] != '#')
+    				//newStr2 += temp[j];
+    		}
+    		//newStr2+= '\n';
+    	} 
+    	//System.out.println( newStr2);
     }
 }

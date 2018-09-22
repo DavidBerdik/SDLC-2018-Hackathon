@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
 import java.net.URL;
 
 import javax.servlet.ServletException;
@@ -64,7 +66,11 @@ public class homePage extends HttpServlet {
 	
 	public File getResourceFile(String fileName) {
 		// Returns a file from the project resources based on the path name.
-		return new File(getClass().getResource("/res" + fileName).getFile());
+		try {
+			return new File(java.net.URLDecoder.decode(getClass().getResource("/res" + fileName).
+					toString().substring(6), "UTF-8"));
+		} catch (UnsupportedEncodingException e) {}
+		return null;
 	}
 
 }

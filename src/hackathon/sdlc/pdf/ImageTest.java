@@ -6,19 +6,26 @@ import java.util.List;
 
 public class ImageTest {
 
+	public static void main(String[] args) {
+		start();
+	}
+	
 	// Load files from local system (John Natale) and attempt to properly process them, then save them onto the desktop.
 	public static void start() {
+		System.out.println("Beginning ImageConverstion unit test.");
+		
 		// Manually add our files.
-		ConversionUtilities.addFileToQueue(new File("01.pdf"));
-		ConversionUtilities.addFileToQueue(new File("02.pdf"));
-		ConversionUtilities.addFileToQueue(new File("03.pdf"));
-		ConversionUtilities.addFileToQueue(new File("04.pdf"));
-		ConversionUtilities.addFileToQueue(new File("05.pdf"));
-		ConversionUtilities.addFileToQueue(new File("06.pdf"));
-		ConversionUtilities.addFileToQueue(new File("07.pdf"));
-		ConversionUtilities.addFileToQueue(new File("08.pdf"));
-		ConversionUtilities.addFileToQueue(new File("09.pdf"));
-		ConversionUtilities.addFileToQueue(new File("10.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\01.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\02.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\03.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\04.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\05.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\06.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\07.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\08.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\09.pdf"));
+		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\10.pdf"));
+
 		
 		// Convert to BufferedImage list.
 		List<BufferedImage> list = ConversionUtilities.processQueue();
@@ -34,6 +41,8 @@ public class ImageTest {
 		PNGWriter.create("08"+ "_test", list.get(7));
 		PNGWriter.create("09"+ "_test", list.get(8));
 		PNGWriter.create("10"+ "_test", list.get(9));
+		
+		System.out.println("Finishing ImageConverstion unit test.");
 	}
 	
 }

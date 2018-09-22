@@ -18,7 +18,7 @@ public class ConversionUtilities {
 	public static boolean addFileToQueue(File file) {
 		// Confirm that we have a real file before progressing.
 		if (!file.exists()) return false; 
-	
+		
 		// Make an attempt to load the file into a PDF document.
 		PDDocument pdf;
 		try {

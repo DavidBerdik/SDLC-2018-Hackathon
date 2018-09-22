@@ -10,6 +10,8 @@ public class PNGWriter {
 	
 	public static void create(String name, BufferedImage image) {
 		File out = new File(name + ".png");
+		
+		// Attempt to create a new file on-disk with a PNG format.
 		try {
 			ImageIO.write(image, "png", out);
 		} catch (IOException e) {

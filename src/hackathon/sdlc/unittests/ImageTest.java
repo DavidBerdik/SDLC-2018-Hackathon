@@ -1,8 +1,11 @@
-package hackathon.sdlc.pdf;
+package hackathon.sdlc.unittests;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.List;
+
+import hackathon.sdlc.pdf.ConversionUtilities;
+import hackathon.sdlc.pdf.PNGWriter;
 
 public class ImageTest {
 

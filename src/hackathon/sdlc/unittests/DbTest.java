@@ -1,4 +1,6 @@
-package hackathon.sdlc.database;
+package hackathon.sdlc.unittests;
+
+import hackathon.sdlc.database.DbConn;
 
 public class DbTest {
 	// This class is only intended for testing DbConn, and should not be used in production.

@@ -1,4 +1,6 @@
-package hackathon.sdlc.cognitive;
+package hackathon.sdlc.unittests;
+
+import hackathon.sdlc.cognitive.APIRequest;
 
 public class RequestTest {
 

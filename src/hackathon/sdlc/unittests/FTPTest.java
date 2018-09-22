@@ -1,8 +1,12 @@
-package hackathon.sdlc.ftp;
+package hackathon.sdlc.unittests;
 
 import java.io.File;
 
 import org.apache.commons.net.ftp.FTPClient;
+
+import hackathon.sdlc.ftp.FTPServer;
+import hackathon.sdlc.ftp.FTPUser;
+import hackathon.sdlc.ftp.FileActions;
 
 public class FTPTest {
 

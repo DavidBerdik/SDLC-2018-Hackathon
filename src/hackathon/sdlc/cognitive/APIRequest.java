@@ -40,6 +40,7 @@ public class APIRequest {
         request.setHeader("Content-Type", "application/json");
         request.setHeader("Ocp-Apim-Subscription-Key", "43fbe86275cc4c90b8ef25cbcac72f8e");
         
+        // Add a particular image to the HTTP Request.
         try {
 			request.setEntity(new StringEntity(imageURL));
 		} catch (UnsupportedEncodingException e) {
@@ -47,6 +48,7 @@ public class APIRequest {
 			return null;
 		}
         
+        // Execute the request to our URI link.
         HttpEntity entity;
 		try {
 			entity = client.execute(request).getEntity();
@@ -58,9 +60,11 @@ public class APIRequest {
 			return null;
 		}
         
+		// Return a null String if we got no data from the connection.
         if (entity == null)
         	return null;
 		
+        // Check to validate our results and return it if applicable.
 		try {
 			return EntityUtils.toString(entity);
 		} catch (ParseException e) {

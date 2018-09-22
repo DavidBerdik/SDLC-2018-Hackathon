@@ -1,10 +1,12 @@
 package hackathon.sdlc.database;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class DbConn {
 	private Connection dbConn;
@@ -13,18 +15,22 @@ public class DbConn {
 	public DbConn() {
 		// Connect to the database.
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			dbConn = DriverManager.getConnection("jdbc:mysql://localhost/feedback?user=sdlc&password=abc@123&useSSL=false");
+			MysqlDataSource dS = new MysqlDataSource();
+			dS.setUser("sdlc");
+			dS.setPassword("abc@123");
+			dS.setDatabaseName("sdlc");
+			dS.setUseSSL(false);
+			dbConn = dS.getConnection();
 		} catch (Exception e) {}
 	}
 	
 	public void writeGenInfo(String nameFirst, String nameLast, String date, String streetAddress, 
 			String apartmentNum, String city, String state, String zip, String phone, String email,
 			String dob, String birthSex, String selfIdSex) throws SQLException {
-		// Write to the "General Information" table and acquire the ID of writing the data.
+		// Write to the "General Information" table.
 		PreparedStatement query = dbConn.prepareStatement("INSERT INTO sdlc.general (nameFirst, nameLast, "
 				+ "date, streetAddress, apartmentNum, city, state, zip, phone, email, dob, birthSex, "
-				+ "selfIdSex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");// SELECT LAST_INSERT_ID();");
+				+ "selfIdSex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 		
 		query.setString(1, nameFirst);
 		query.setString(2, nameLast);
@@ -39,10 +45,12 @@ public class DbConn {
 		query.setString(11, dob);
 		query.setString(12, birthSex);
 		query.setString(13, selfIdSex);
+		query.executeUpdate();
 		
-		// Store the ID of the user that was just inserted in "id."
-		ResultSet results = query.executeQuery();
-		id = results.getInt("LAST_INSERT_ID()");
+		// Acquire the ID of the entry that was just inserted into the table.
+		ResultSet results = query.getGeneratedKeys();
+		if(results.next())
+			id = results.getInt(1);
 		System.out.print("ID is " + id);
 	}
 

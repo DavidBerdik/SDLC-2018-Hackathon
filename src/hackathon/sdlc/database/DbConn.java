@@ -65,5 +65,22 @@ public class DbConn {
 		query.setString(6, coverageType);
 		query.executeUpdate();
 	}
+	
+	public void writeDependentInfo(String nameFirst, String nameMiddleInitial, String nameLast, 
+			String dob, String birthSex, String selfIdSex, String phone, String email) throws SQLException {
+		// Write to the "Dependent Information" table.
+		PreparedStatement query = dbConn.prepareStatement("INSERT INTO sdlc.dependent VALUES (?, ?, ?, ?, ?, "
+				+ "?, ?, ?, ?)");
+		query.setInt(1, id);
+		query.setString(2, nameFirst);
+		query.setString(3, nameMiddleInitial);
+		query.setString(4, nameLast);
+		query.setString(5, dob);
+		query.setString(6, birthSex);
+		query.setString(7, selfIdSex);
+		query.setString(8, phone);
+		query.setString(9, email);
+		query.executeUpdate();
+	}
 
 }

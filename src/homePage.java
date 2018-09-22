@@ -2,6 +2,7 @@
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,14 +33,24 @@ public class homePage extends HttpServlet {
 		//response.getWriter().append("Served at: YOLOSWAG ").append(request.getContextPath());
 		
 		// READ IN HTML FILE 
-		String htmlHomePageContent = "";
+		StringBuilder htmlHomePageContent = new StringBuilder();
 		try {
-			
-			BufferedReader input = new BufferedReader ( new FileReader("/hackathon2018/src/res/frontEndRes/hackathonProject.html"));
+			String filePath = "/hackathon2018/src/res/frontEndRes/hackathonProject.html";
+			response.getWriter().append(filePath);
+			BufferedReader input = new BufferedReader (new FileReader(new File(filePath)));
+			String ln = "";
+			while((ln = input.readLine())!= null) {
+				htmlHomePageContent.append(ln);
+				System.out.println(htmlHomePageContent);
+			}
+			input.close();
 		} 
-		catch(Exception e){
-			
+		catch(IOException e){
+			String error = e.getMessage();
+			response.getWriter().append(error);
 		}
+		
+		response.getWriter().append(htmlHomePageContent);
 	}
 
 	/**

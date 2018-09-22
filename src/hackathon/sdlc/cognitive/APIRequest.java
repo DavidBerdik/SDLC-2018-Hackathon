@@ -17,12 +17,11 @@ public class APIRequest {
 
 	private static HttpClient client = HttpClients.createDefault();
 	
-	public static String makeRequest(String mode, String imageURL) {
+	public static String makeRequest(String imageURL) {
 		// Build a new URI API connection link.
 		URIBuilder builder;
 		try {
-			builder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v2.0/recognizeText");
-			builder.setParameter("mode", mode);
+			builder = new URIBuilder("https://eastus.api.cognitive.microsoft.com/vision/v1.0/ocr");
 		} catch (URISyntaxException e) {
 			System.out.println("APIRequest::makeRequest -> URISyntaxExceltion");
 			return null;
@@ -38,16 +37,16 @@ public class APIRequest {
 		}
 		
         request.setHeader("Content-Type", "application/json");
-        request.setHeader("Ocp-Apim-Subscription-Key", "43fbe86275cc4c90b8ef25cbcac72f8e");
+        request.setHeader("Ocp-Apim-Subscription-Key", "3d5bc87115a94cb4a8aa3a06da9ee1e5");
         
         // Add a particular image to the HTTP Request.
         try {
-			request.setEntity(new StringEntity(imageURL));
+			request.setEntity(new StringEntity("{\"url\":\"" + imageURL + "\"}"));
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("APIRequest::makeRequest -> UnsupportedEncodingException");
 			return null;
 		}
-        
+                
         // Execute the request to our URI link.
         HttpEntity entity;
 		try {

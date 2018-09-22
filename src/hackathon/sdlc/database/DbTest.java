@@ -1,6 +1,7 @@
 package hackathon.sdlc.database;
 
 public class DbTest {
+	// This class is only intended for testing DbConn, and should not be used in production.
 	public static void main(String[] args) {
 		DbConn conn = new DbConn();
 		conn.writeToDb("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", 

@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.apache.pdfbox.rendering.ImageType;
+import org.apache.pdfbox.rendering.PDFRenderer;
 
 public class ConversionUtilities {
 	
@@ -35,7 +37,28 @@ public class ConversionUtilities {
 	}
 	
 	public static List<BufferedImage> processQueue() {
+		// Disallow processing when there's nothing to process.
+		if (renderQueue.size() == 0) return null;
+		
 		List<BufferedImage> processed = new LinkedList<BufferedImage>();
+			
+		// Run through our entire list of PDF documents;
+		renderQueue.forEach((document) -> {
+			PDFRenderer render = new PDFRenderer(document);
+			
+			// Convert each page into a unique image.
+			for (int page = 0; page < document.getNumberOfPages(); ++page) {
+				try {
+					processed.add(render.renderImageWithDPI(page, 80, ImageType.RGB));
+				} catch (IOException e) {
+					System.out.println("ConversionUtilities::addFileToQueue -> processQueue");
+					return;
+				}
+			}
+		});
+		
+		// Return our new buffered images.
+		return processed;
 	}
 
 }

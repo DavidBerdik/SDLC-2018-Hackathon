@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,9 +37,8 @@ public class homePage extends HttpServlet {
 		// READ IN HTML FILE 
 		StringBuilder htmlHomePageContent = new StringBuilder();
 		try {
-			String filePath = "/hackathon2018/src/res/frontEndRes/hackathonProject.html";
-			response.getWriter().append(filePath);
-			BufferedReader input = new BufferedReader (new FileReader(new File(filePath)));
+			String filePath = "/frontEndRes/hackathonProject.html";
+			BufferedReader input = new BufferedReader (new FileReader(getResourceFile(filePath)));
 			String ln = "";
 			while((ln = input.readLine())!= null) {
 				htmlHomePageContent.append(ln);
@@ -59,6 +60,11 @@ public class homePage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	public File getResourceFile(String fileName) {
+		// Returns a file from the project resources based on the path name.
+		return new File(getClass().getResource("/res" + fileName).getFile());
 	}
 
 }

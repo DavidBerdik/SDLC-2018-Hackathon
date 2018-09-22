@@ -8,6 +8,7 @@ public class ImageTest {
 
 	// Load files from local system (John Natale) and attempt to properly process them, then save them onto the desktop.
 	public static void start() {
+		// Manually add our files.
 		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\test-data\\01.pdf"));
 		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\test-data\\02.pdf"));
 		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\test-data\\03.pdf"));
@@ -19,8 +20,10 @@ public class ImageTest {
 		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\test-data\\09.pdf"));
 		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\test-data\\10.pdf"));
 		
+		// Convert to BufferedImage list.
 		List<BufferedImage> list = ConversionUtilities.processQueue();
 		
+		// Write to disk.
 		PNGWriter.create("C:\\Users\\Administrator\\Desktop\\01", list.get(0));
 		PNGWriter.create("C:\\Users\\Administrator\\Desktop\\02", list.get(1));
 		PNGWriter.create("C:\\Users\\Administrator\\Desktop\\03", list.get(2));

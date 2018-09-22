@@ -12,13 +12,20 @@ public class DbConn {
 	private Connection dbConn;
 	int id = 0; // For storing the entry ID referenced by all tables when querying.
 	
+	// Database connection info.
+	String url = "jdbc:mysql://sdlc.drewerth.ehst.co:3306";
+	String user = "sdlc_db";
+	String password = "m8M5p%w3";
+	String schema_name = "sdlc_2018";
+	
 	public DbConn() {
 		// Connect to the database.
 		try {
 			MysqlDataSource dS = new MysqlDataSource();
-			dS.setUser("sdlc");
-			dS.setPassword("abc@123");
-			dS.setDatabaseName("sdlc");
+			dS.setURL(url);
+			dS.setUser(user);
+			dS.setPassword(password);
+			dS.setDatabaseName(schema_name);
 			dS.setUseSSL(false);
 			dbConn = dS.getConnection();
 		} catch (Exception e) {}
@@ -40,15 +47,18 @@ public class DbConn {
 			writeDependentInfo(depNameFirst, depNameMiddleInitial, depNameLast, depDob, depBirthSex, 
 					depSelfIdSex, depPhone, depEmail);
 			return true;
-		} catch (Exception e) {return false;}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	private void writeGenInfo(String nameFirst, String nameLast, String date, String streetAddress, 
 			String apartmentNum, String city, String state, String zip, String phone, String email,
 			String dob, String birthSex, String selfIdSex) throws SQLException {
 		// Write to the "General Information" table.
-		PreparedStatement query = dbConn.prepareStatement("INSERT INTO sdlc.general (nameFirst, nameLast, "
-				+ "date, streetAddress, apartmentNum, city, state, zip, phone, email, dob, birthSex, "
+		PreparedStatement query = dbConn.prepareStatement("INSERT INTO " + schema_name + ".general (nameFirst, "
+				+ "nameLast, date, streetAddress, apartmentNum, city, state, zip, phone, email, dob, birthSex, "
 				+ "selfIdSex) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 		
 		query.setString(1, nameFirst);
@@ -75,7 +85,8 @@ public class DbConn {
 	private void writeInsuranceInfo(String insuranceId, String groupCode, String startDate, 
 			String endDate, String coverageType) throws SQLException {
 		// Write to the "Insurance Information" table.
-		PreparedStatement query = dbConn.prepareStatement("INSERT INTO sdlc.insurance VALUES (?, ?, ?, ?, ?, ?)");
+		PreparedStatement query = dbConn.prepareStatement("INSERT INTO " + schema_name + ".insurance "
+				+ "VALUES (?, ?, ?, ?, ?, ?)");
 		query.setInt(1, id);
 		query.setString(2, insuranceId);
 		query.setString(3, groupCode);
@@ -88,8 +99,8 @@ public class DbConn {
 	private void writeDependentInfo(String nameFirst, String nameMiddleInitial, String nameLast, 
 			String dob, String birthSex, String selfIdSex, String phone, String email) throws SQLException {
 		// Write to the "Dependent Information" table.
-		PreparedStatement query = dbConn.prepareStatement("INSERT INTO sdlc.dependent VALUES (?, ?, ?, ?, ?, "
-				+ "?, ?, ?, ?)");
+		PreparedStatement query = dbConn.prepareStatement("INSERT INTO " + schema_name + ".dependent VALUES "
+				+ "(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		query.setInt(1, id);
 		query.setString(2, nameFirst);
 		query.setString(3, nameMiddleInitial);

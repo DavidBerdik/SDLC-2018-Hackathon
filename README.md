@@ -1,4 +1,6 @@
 # SLD 2018 Hackathon: sudo rm -rf /
 ### A2: Benefits Platform Intelligent Automation
----
-This is just a test commit (for now).
+
+### Dependencies
+* [Apache PDF Box](https://pdfbox.apache.org/)
+* [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/)

@@ -66,8 +66,8 @@ public class ComputerVision
                 String jsonString = EntityUtils.toString(entity);
                 JSONObject json = new JSONObject(jsonString);
                 System.out.println("REST Response:\n");
-                cleanUp(json.toString(1));
-                //System.out.println(results);
+                String results = cleanUp(json.toString(1));
+                System.out.println(results);
             }
         } catch (Exception e)
         {
@@ -76,11 +76,11 @@ public class ComputerVision
         }
     }
     
-    public static void cleanUp(String s)
+    public static String cleanUp(String s)
     {
     	//First pass
-    	int i, c = 0;
-    	String newStr1 = "", newStr2 = "";
+    	int i;
+    	String newStr = "";
     	char[] temp;
     	
     	Scanner cleaner = new Scanner(s);
@@ -99,36 +99,17 @@ public class ComputerVision
     		for(int j = 0; j < temp.length; j++)
     		{
     			if (temp[j] != '#')
-    				newStr1 += temp[j];
+    				newStr += temp[j];
     		}
-    		newStr1+= '\n';
+    		newStr+= '\n';
     	}
     	
-    	newStr1 = newStr1.replace("{", "");
-    	newStr1 = newStr1.replace("}", "");
-    	newStr1 = newStr1.replace("[", "");
-    	newStr1 = newStr1.replace("]", "");
+    	newStr = newStr.replace("{", "");
+    	newStr = newStr.replace("},", "");
+    	newStr = newStr.replace("}", "");
+    	newStr = newStr.replace("[", "");
+    	newStr = newStr.replace("]", "");
     	
-    	//Second pass
-    	cleaner = new Scanner(newStr1);
-    	while (cleaner.hasNext())
-    	{
-    		i = 0;
-    		temp = cleaner.nextLine().toCharArray();
-    		if (temp[0] == ' ' /*|| temp[0] == ','*/)
-    		{
-    			while (temp[i] == ' ' /*|| temp[i] == ','*/)
-    			{
-    				temp[i] = '#'; i++;
-    			}
-    		}
-    		for(int j = 0; j < temp.length; j++) System.out.print(temp[j]);
-    		{
-    			//if (temp[j] != '#')
-    				//newStr2 += temp[j];
-    		}
-    		//newStr2+= '\n';
-    	} 
-    	//System.out.println( newStr2);
+    	return newStr;
     }
 }

@@ -18,7 +18,7 @@ public class FTPServer {
 		ftp = new FTPClient();
 	}
 	
-	public FTPClient connect(FTPClient client) {
+	public FTPClient connect() {
 		// Create a new connection to our FTP client and return it.
 		try {
 			ftp.connect(host, port);

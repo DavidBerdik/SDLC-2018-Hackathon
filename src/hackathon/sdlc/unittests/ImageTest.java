@@ -9,12 +9,7 @@ import hackathon.sdlc.pdf.PNGWriter;
 
 public class ImageTest {
 
-	public static void main(String[] args) {
-		start();
-	}
-	
-	// Load files from local system (John Natale) and attempt to properly process them, then save them onto the desktop.
-	public static void start() {
+	public ImageTest() {
 		System.out.println("Beginning ImageConverstion unit test.");
 		
 		// Manually add our files.

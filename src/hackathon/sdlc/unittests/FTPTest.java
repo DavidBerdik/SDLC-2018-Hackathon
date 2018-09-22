@@ -10,11 +10,7 @@ import hackathon.sdlc.ftp.FileActions;
 
 public class FTPTest {
 
-	public static void main(String[] args) {
-		start();
-	}
-	
-	public static void start() {
+	public FTPTest() {
 		System.out.println("Beginning FTP unit test.");
 		
 		FTPServer server = new FTPServer("sdlc.drewerth.ehst.co", 21);

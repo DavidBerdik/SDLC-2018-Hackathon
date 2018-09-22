@@ -4,11 +4,7 @@ import hackathon.sdlc.cognitive.APIRequest;
 
 public class RequestTest {
 
-	public static void main(String[] args) {
-		start();
-	}
-	
-	public static void start() {
+	public RequestTest() {
 		System.out.println("Beginning API/JSON unit test.");
 		
 		String raw_printed = APIRequest.makeRequest("https://i.imgur.com/FHZhjzq.jpg");

@@ -51,7 +51,19 @@ public class DbConn {
 		ResultSet results = query.getGeneratedKeys();
 		if(results.next())
 			id = results.getInt(1);
-		System.out.print("ID is " + id);
+	}
+	
+	public void writeInsuranceInfo(String insuranceId, String groupCode, String startDate, 
+			String endDate, String coverageType) throws SQLException {
+		// Write to the "Insurance Information" table.
+		PreparedStatement query = dbConn.prepareStatement("INSERT INTO sdlc.insurance VALUES (?, ?, ?, ?, ?, ?)");
+		query.setInt(1, id);
+		query.setString(2, insuranceId);
+		query.setString(3, groupCode);
+		query.setString(4, startDate);
+		query.setString(5, endDate);
+		query.setString(6, coverageType);
+		query.executeUpdate();
 	}
 
 }

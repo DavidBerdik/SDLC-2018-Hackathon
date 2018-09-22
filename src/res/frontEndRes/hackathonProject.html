@@ -1,10 +1,40 @@
 <!doctype html>
 <html>
 <head>
-	<link rel="stylesheet" href="miscStyles.css">
-	<link rel="stylesheet" href="navBarStyle.css">
+<style>
+#navbar{
+	overflow: hidden;
+	position:fixed;
+	top:0;
+	width:100%
+}
+.navBarContent{
+	display: block;
+	text-align:center;
+	padding: 1.5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	text-decoration: none;	
+	
+}
+.navBarSect{
+	float:left;
+	width:30%;
+	background-color: cadetblue;
+}
+.navBar{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navBarSect:hover{
+	background-color: black;
+}
+
+</style>
 <meta charset="UTF-8">
-<title>Home Page</title>
+<title>uploadPDFHomePage</title>
 </head>
 
 <body>
@@ -15,7 +45,10 @@
 			<li class="navBarSect"><a href="FAQ.html" class="navBarContent">FAQ</a></li>
 		</ul>
 	</div>
-	
-	
+	<div id="content"></div>
+	<form>
+		<input type="file" accept="pdf" class="uploadButton" multiple/>
+		<input type="submit" class="subButton">
+	</form>
 </body>
 </html>

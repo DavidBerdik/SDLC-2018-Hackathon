@@ -3,6 +3,7 @@ package hackathon.sdlc.ftp;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -12,8 +13,7 @@ import org.apache.commons.net.ftp.FTPClient;
 public class FileActions {
 
 	public static boolean upload(FTPClient client, String deposit, File file) {
-		client.enterLocalPassiveMode();
-		
+		// Set our file type for upload.
 		try {
 			client.setFileType(FTP.BINARY_FILE_TYPE);
 		} catch (IOException e) {
@@ -36,7 +36,7 @@ public class FileActions {
 			return false;
 		}
 		
-		// Upload out file to the database.
+		// Upload our file to the file server.
 		try {
 			client.storeFile(deposit, is);
 			is.close();
@@ -47,5 +47,31 @@ public class FileActions {
 		
 		return true;
 	}
+	
+	public static boolean download(FTPClient client, String remote, String local) {
+		// Set our file type for download.
+		try {
+			client.setFileType(FTP.BINARY_FILE_TYPE);
+		} catch (IOException e) {
+			System.out.println("FileActions::upload -> IOException");
+			return false;
+		}
+		
+		// Validate our connection before attempting an upload.
+        if (!client.isConnected())
+        {
+        	return false;
+        }		
+        
+        // Perform a download operation.
+        try (FileOutputStream fos = new FileOutputStream(local)) {
+            client.retrieveFile(remote, fos);
+        } catch (IOException e) {
+			System.out.println("FileActions::upload -> IOException");
+			return false;
+        }
+
+        return true;
+	}	
 	
 }

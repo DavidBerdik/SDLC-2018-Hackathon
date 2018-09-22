@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="src/res/jna-4.4.0.jar"/>
 	<classpathentry kind="lib" path="src/res/jna-platform-4.4.0.jar"/>
 	<classpathentry kind="lib" path="src/res/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="src/res/commons-net-3.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

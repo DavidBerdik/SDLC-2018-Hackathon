@@ -35,7 +35,7 @@ public class homePage extends HttpServlet {
 		String htmlHomePageContent = "";
 		try {
 			
-			BufferedReader input = new BufferedReader ( new FileReader("hackathonProject.html"));
+			BufferedReader input = new BufferedReader ( new FileReader("/hackathon2018/src/res/frontEndRes/hackathonProject.html"));
 		} 
 		catch(Exception e){
 			

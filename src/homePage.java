@@ -1,17 +1,19 @@
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URL;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-///import org.apache.pdfbox.pdmodel.PDDocument;
-//import org.apache.pdfbox.rendering.ImageType;
-//import org.apache.pdfbox.rendering.PDFRenderer;
-
-import hackathon.sdlc.pdf.ImageTest;
 
 /**
  * Servlet implementation class homePage
@@ -32,8 +34,26 @@ public class homePage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: YOLOSWAG ").append(request.getContextPath());
-		ImageTest.start();
+		//response.getWriter().append("Served at: YOLOSWAG ").append(request.getContextPath());
+		
+		// READ IN HTML FILE 
+		StringBuilder htmlHomePageContent = new StringBuilder();
+		try {
+			String filePath = "/frontEndRes/hackathonProject.html";
+			BufferedReader input = new BufferedReader (new FileReader(getResourceFile(filePath)));
+			String ln = "";
+			while((ln = input.readLine())!= null) {
+				htmlHomePageContent.append(ln);
+				System.out.println(htmlHomePageContent);
+			}
+			input.close();
+		} 
+		catch(IOException e){
+			String error = e.getMessage();
+			response.getWriter().append(error);
+		}
+		
+		response.getWriter().append(htmlHomePageContent);
 	}
 
 	/**
@@ -42,6 +62,23 @@ public class homePage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	public File getResourceFile(String fileName) {
+		// Returns a file from the project resources based on the path name.
+		try {
+			String OS = System.getProperty("os.name").toLowerCase();
+			if(OS.indexOf("win") >= 0) {
+				return new File(java.net.URLDecoder.decode(getClass().getResource("/res" + fileName).
+						toString().substring(6), "UTF-8"));
+			}
+			else {
+				return new File("/" + java.net.URLDecoder.decode(getClass().getResource("/res" + fileName).
+						toString().substring(6), "UTF-8"));
+			}
+			
+		} catch (UnsupportedEncodingException e) {}
+		return null;
 	}
 
 }

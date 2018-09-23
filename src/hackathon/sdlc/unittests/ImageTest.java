@@ -13,17 +13,16 @@ public class ImageTest {
 		System.out.println("Beginning ImageConverstion unit test.");
 		
 		// Manually add our files.
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\01.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\02.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\03.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\04.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\05.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\06.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\07.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\08.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\09.pdf"));
-		ConversionUtilities.addFileToQueue(new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\src\\res\\10.pdf"));
-
+		ConversionUtilities.addFileToQueue(new File("test-data/01.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/02.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/03.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/04.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/05.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/06.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/07.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/08.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/09.pdf"));
+		ConversionUtilities.addFileToQueue(new File("test-data/10.pdf"));
 		
 		// Convert to BufferedImage list.
 		List<BufferedImage> list = ConversionUtilities.processQueue();

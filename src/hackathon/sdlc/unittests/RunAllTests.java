@@ -6,5 +6,6 @@ public class RunAllTests {
 		new FTPTest();
 		new ImageTest();
 		new RequestTest();
+		System.out.println("Completed all unit tests.");
 	}
 }

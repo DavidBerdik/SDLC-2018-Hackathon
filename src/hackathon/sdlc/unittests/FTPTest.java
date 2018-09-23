@@ -19,7 +19,7 @@ public class FTPTest {
 		FTPUser user = new FTPUser("sdlc_user", "Bxz4#8y7");
 		user.login(client);
 		
-		FileActions.upload(client, "memes.pdf", new File("C:\\Users\\Administrator\\Desktop\\Hackathon\\test-data\\01.pdf"));
+		FileActions.upload(client, "memes.pdf", new File("test-data/01.pdf"));
 		FileActions.download(client, "memes.pdf", "testobj.pdf");
 		
 		System.out.println("Finishing FTP unit test.");

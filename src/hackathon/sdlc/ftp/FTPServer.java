@@ -9,7 +9,7 @@ public class FTPServer {
 
 	private String host;
 	private int port;
-	private FTPClient ftp;
+	private static FTPClient ftp;
 	
 	public FTPServer(String h, int p) {
 		this.host = h;
@@ -33,7 +33,7 @@ public class FTPServer {
 		return ftp;
 	}
 	
-	public void disconnect() {
+	public static void disconnect() {
 		if (!ftp.isConnected()) return;
 		
 		try {

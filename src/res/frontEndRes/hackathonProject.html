@@ -29,7 +29,7 @@
 }
 
 .navBarSect:hover{
-	background-color: black;
+	background-color: white;
 }
 
 </style>
@@ -46,9 +46,20 @@
 		</ul>
 	</div>
 	<div id="content"></div>
-	<form>
-		<input type="file" accept="pdf" class="uploadButton" multiple/>
-		<input type="submit" class="subButton">
-	</form>
+<</div>
+<form action="http://localhost:8080/hackathon2018/homePage" enctype=”multipart/form-data”  method="post">
+<br>
+<br>
+<input type="file" name="pdfCollect" id="myFile">
+<br>
+<br>
+<button type="submit"> Submit </button>
+</form>
+
+
+
+
+
+		
 </body>
 </html>

@@ -2,12 +2,32 @@
 <html>
 <head>
 <style>
+	h1{
+		text-align:center;
+		
+	}
+
+	body{
+		
+	background-color:#6C6565;
+		
+	}
+
+	button{
+		background-color: cadetblue;
+		border:none;
+		text-decoration:none;
+		padding:1.5% 2.5%;
+		
+	}
+
 #navbar{
 	overflow: hidden;
 	position:fixed;
 	top:0;
 	width:100%
 }
+
 .navBarContent{
 	display: block;
 	text-align:center;
@@ -45,8 +65,20 @@
 			<li class="navBarSect"><a href="FAQ.html" class="navBarContent">FAQ</a></li>
 		</ul>
 	</div>
-	<div id="content"></div>
-<</div>
+	<div id="content">
+		<br>
+		<br>
+<h1>
+	How to upload your PDF File:
+	</h1>
+	<ol>
+			<li> Locate your PDF file  </li>
+			<li> Select your PDF file using the "Choose File" button below</li>
+			<li> Choose submit. </li>
+	</ol>
+	<p> This process will automate the process of entering PDF information.</p>
+	
+
 <form action="http://localhost:8080/hackathon2018/homePage" enctype=”multipart/form-data”  method="post">
 <br>
 <br>
@@ -56,7 +88,7 @@
 <button type="submit"> Submit </button>
 </form>
 
-
+</div>
 
 
 

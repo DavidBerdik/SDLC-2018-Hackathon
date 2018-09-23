@@ -78,15 +78,55 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-io-2.6/commons-io-2.6-test-sources.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-io-2.6/commons-io-2.6-tests.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-io-2.6/commons-io-2.6-javadoc.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-io-2.6/commons-io-2.6-sources.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-io-2.6/commons-io-2.6.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-fileupload-1.3.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-fileupload-1.3.3-sources.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-fileupload-1.3.3-test-sources.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-fileupload-1.3.3-tests.jar"/>
-	<classpathentry kind="lib" path="/Volumes/Seagate Backup Plus Drive/SDLC-2018-Hackathon/src/res/commons-fileupload-1.3.3.jar"/>
+	<classpathentry kind="lib" path="src/res/commons-fileupload-1.3.3-javadoc.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-fileupload-1.3.3-sources.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-fileupload-1.3.3-test-sources.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-fileupload-1.3.3-tests.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-fileupload-1.3.3.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-io-2.6/commons-io-2.6-javadoc.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-io-2.6/commons-io-2.6-sources.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-io-2.6/commons-io-2.6-test-sources.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-io-2.6/commons-io-2.6-tests.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/res/commons-io-2.6/commons-io-2.6.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

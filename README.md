@@ -2,7 +2,7 @@
 ### A2: Benefits Platform Intelligent Automation
 
 ### Some Quick Info
-This project was created during the twelve hour SDLC Hackathon 2018. This project is far from complete, most packages do however come with a functioning test contained in the `hackathon.sdlc.unittests` package. Although, as a team, we found ourselves quite content with the final "product" seeing as we spent much of the time learning and adapting to new libraries not introduced to us while in University.
+This project was created during the twelve hour SDLC Hackathon 2018. This project is far from complete, most packages do however come with a functioning test contained in the `hackathon.sdlc.unittests` package. Although, as a team, we found ourselves quite content with the final "product" seeing as we spent much of the time learning and adapting to new libraries not introduced to us while in University. The project instructions that were provided to us at the hackathon are available [here](Instructions.pdf).
 
 ### Packages
 * hackathon.sdlc.cognitive - allows for remote requests to the Microsoft Computer Vision API.
